@@ -1,0 +1,51 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='')/$value"><edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/></edmx:Reference>
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZMW_I_EPM_SO_CDS" xml:lang="de" sap:schema-version="1">
+			<EntityType Name="ZMW_I_EPM_SOType" sap:content-version="1">
+				<Key><PropertyRef Name="node_key"/></Key><Property Name="node_key" Type="Edm.Guid" Nullable="false" sap:label="Knotenschlüssel" sap:quickinfo="EPM: Generischer Knotenschlüssel"/><Property Name="tax_amount" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="currency_code" sap:label="Gesamtsteuerbetrag"
+					sap:quickinfo="EPM: Gesamtsteuerbetrag"/><Property Name="lifecycle_status" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Lebenszyklusstatus"
+					sap:quickinfo="EPM: Lebenszyklusstatus des Kundenauftrags"/><Property Name="billing_status" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Bestätigungsstatus"
+					sap:quickinfo="EPM: Bestätigungsstatus des Kundenauftrags"/><Property Name="delivery_status" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Bestellstatus"
+					sap:quickinfo="EPM: Bestellstatus des Kundenauftrags"/><Property Name="op_id" Type="Edm.String" MaxLength="35" sap:display-format="UpperCase" sap:label="Opportunity-ID"
+					sap:quickinfo="EPM: Opportunity-ID für SoD-IDoc-Verarbeitung"/><Property Name="overall_status" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Gesamtstatus"
+					sap:quickinfo="EPM: Gesamtstatus Kundenaufträge"/><Property Name="buy_contact_guid" Type="Edm.Guid" sap:label="Knotenschlüssel" sap:quickinfo="EPM: Generischer Knotenschlüssel"/><Property Name="ship_to_adr_guid" Type="Edm.Guid" sap:label="Knotenschlüssel" sap:quickinfo="EPM: Generischer Knotenschlüssel"/><Property Name="bill_to_adr_guid" Type="Edm.Guid" sap:label="Knotenschlüssel" sap:quickinfo="EPM: Generischer Knotenschlüssel"/><Property Name="payment_method" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Zahlweg"
+					sap:quickinfo="EPM: Zahlweg für Kundenauftrag"/><Property Name="so_id" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Kundenauftrags-ID"
+					sap:quickinfo="EPM: Kundenauftragsnummer"/><Property Name="payment_terms" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Zahlungsbedingungen"
+					sap:quickinfo="EPM: Zahlungsbedingungen für Kundenauftrag"/><Property Name="created_by_bp" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Bool. Wert" sap:quickinfo="EPM: Boolsch"/><Property Name="changed_by_bp" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Bool. Wert" sap:quickinfo="EPM: Boolsch"/><Property Name="note_guid" Type="Edm.Guid" sap:label="Knotenschlüssel" sap:quickinfo="EPM: Generischer Knotenschlüssel"/><Property Name="buyer_guid" Type="Edm.Guid" sap:label="Knotenschlüssel" sap:quickinfo="EPM: Generischer Knotenschlüssel"/><Property Name="currency_code" Type="Edm.String" MaxLength="5" sap:label="ISO-Währungscode" sap:quickinfo="EPM: Währungscode"
+					sap:semantics="currency-code"/><Property Name="gross_amount" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="currency_code" sap:label="Gesamtbruttobetrag"
+					sap:quickinfo="EPM: Gesamtbruttobetrag"/><Property Name="net_amount" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="currency_code" sap:label="Gesamtnettobetrag"
+					sap:quickinfo="EPM: Gesamtnettobetrag"/><NavigationProperty Name="to_Item" Relationship="ZMW_I_EPM_SO_CDS.assoc_440E48DED3789A5DF7AEB0DF33B5FA99"
+					FromRole="FromRole_assoc_440E48DED3789A5DF7AEB0DF33B5FA99" ToRole="ToRole_assoc_440E48DED3789A5DF7AEB0DF33B5FA99"/></EntityType>
+			<EntityType Name="ZMW_I_EPM_SOIType" sap:content-version="1">
+				<Key><PropertyRef Name="node_key"/></Key><Property Name="node_key" Type="Edm.Guid" Nullable="false" sap:label="Knotenschlüssel" sap:quickinfo="EPM: Generischer Knotenschlüssel"/><Property Name="item_atp_status" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="ATP-Status"
+					sap:quickinfo="EPM: ATP-Status der Kundenauftragsposition"/><Property Name="op_item_pos" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Zeile der Position"
+					sap:quickinfo="EPM: Zeilennummer der Kundenauftragsposition"/><Property Name="parent_key" Type="Edm.Guid" sap:label="Knotenschlüssel" sap:quickinfo="EPM: Generischer Knotenschlüssel"/><Property Name="so_item_pos" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Zeile der Position"
+					sap:quickinfo="EPM: Zeilennummer der Kundenauftragsposition"/><Property Name="product_guid" Type="Edm.Guid" sap:label="Knotenschlüssel" sap:quickinfo="EPM: Generischer Knotenschlüssel"/><Property Name="note_guid" Type="Edm.Guid" sap:label="Knotenschlüssel" sap:quickinfo="EPM: Generischer Knotenschlüssel"/><Property Name="currency_code" Type="Edm.String" MaxLength="5" sap:label="ISO-Währungscode" sap:quickinfo="EPM: Währungscode"
+					sap:semantics="currency-code"/><Property Name="gross_amount" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="currency_code" sap:label="Gesamtbruttobetrag"
+					sap:quickinfo="EPM: Gesamtbruttobetrag"/><Property Name="net_amount" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="currency_code" sap:label="Gesamtnettobetrag"
+					sap:quickinfo="EPM: Gesamtnettobetrag"/><Property Name="tax_amount" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="currency_code" sap:label="Gesamtsteuerbetrag"
+					sap:quickinfo="EPM: Gesamtsteuerbetrag"/><NavigationProperty Name="to_SalesOrder" Relationship="ZMW_I_EPM_SO_CDS.assoc_44EC420513062395D573B3E14C4D37FA"
+					FromRole="FromRole_assoc_44EC420513062395D573B3E14C4D37FA" ToRole="ToRole_assoc_44EC420513062395D573B3E14C4D37FA"/></EntityType>
+			<Association Name="assoc_440E48DED3789A5DF7AEB0DF33B5FA99" sap:content-version="1"><End Type="ZMW_I_EPM_SO_CDS.ZMW_I_EPM_SOType" Multiplicity="1" Role="FromRole_assoc_440E48DED3789A5DF7AEB0DF33B5FA99"/><End Type="ZMW_I_EPM_SO_CDS.ZMW_I_EPM_SOIType" Multiplicity="*" Role="ToRole_assoc_440E48DED3789A5DF7AEB0DF33B5FA99"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_assoc_440E48DED3789A5DF7AEB0DF33B5FA99"><PropertyRef Name="node_key"/></Principal>
+					<Dependent Role="ToRole_assoc_440E48DED3789A5DF7AEB0DF33B5FA99"><PropertyRef Name="parent_key"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_44EC420513062395D573B3E14C4D37FA" sap:content-version="1"><End Type="ZMW_I_EPM_SO_CDS.ZMW_I_EPM_SOIType" Multiplicity="1" Role="FromRole_assoc_44EC420513062395D573B3E14C4D37FA"/><End Type="ZMW_I_EPM_SO_CDS.ZMW_I_EPM_SOType" Multiplicity="1" Role="ToRole_assoc_44EC420513062395D573B3E14C4D37FA"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_44EC420513062395D573B3E14C4D37FA"><PropertyRef Name="node_key"/></Principal>
+					<Dependent Role="FromRole_assoc_44EC420513062395D573B3E14C4D37FA"><PropertyRef Name="parent_key"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<EntityContainer Name="ZMW_I_EPM_SO_CDS_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="ZMW_I_EPM_SO" EntityType="ZMW_I_EPM_SO_CDS.ZMW_I_EPM_SOType" sap:content-version="1"/><EntitySet Name="ZMW_I_EPM_SOI" EntityType="ZMW_I_EPM_SO_CDS.ZMW_I_EPM_SOIType" sap:content-version="1"/>
+				<AssociationSet Name="assoc_440E48DED3789A5DF7AEB0DF33B5FA99" Association="ZMW_I_EPM_SO_CDS.assoc_440E48DED3789A5DF7AEB0DF33B5FA99"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ZMW_I_EPM_SO" Role="FromRole_assoc_440E48DED3789A5DF7AEB0DF33B5FA99"/><End EntitySet="ZMW_I_EPM_SOI" Role="ToRole_assoc_440E48DED3789A5DF7AEB0DF33B5FA99"/></AssociationSet>
+				<AssociationSet Name="assoc_44EC420513062395D573B3E14C4D37FA" Association="ZMW_I_EPM_SO_CDS.assoc_44EC420513062395D573B3E14C4D37FA"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ZMW_I_EPM_SOI" Role="FromRole_assoc_44EC420513062395D573B3E14C4D37FA"/><End EntitySet="ZMW_I_EPM_SO" Role="ToRole_assoc_44EC420513062395D573B3E14C4D37FA"/></AssociationSet>
+			</EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZMW_I_EPM_SO_CDS/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZMW_I_EPM_SO_CDS/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

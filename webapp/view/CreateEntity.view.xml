@@ -1,0 +1,79 @@
+<mvc:View controllerName="de.wegelin.FioriCRUD.controller.CreateEntity" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form"
+	xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic"
+	xmlns:smart="sap.ui.comp.smartfield" xmlns="sap.m">
+	<semantic:DetailPage id="page" navButtonPress="onNavBack" title="{viewModel>/viewTitle}" busy="{viewModel>/busy}">
+		<semantic:content>
+			<f:SimpleForm class="editableForm" columnsL="1" columnsM="1" editable="true" emptySpanL="4" emptySpanM="4" id="newEntitySimpleForm"
+				labelSpanL="3" labelSpanM="3" layout="ResponsiveGridLayout" maxContainerCols="2" minWidth="1024"
+				title="{= ${viewModel>/mode} === 'edit'? 'Edit ZMW_I_EPM_SO_CDS.ZMW_I_EPM_SOType': 'New ZMW_I_EPM_SO_CDS.ZMW_I_EPM_SOType'}">
+				<f:content>
+					<Label text="Knotenschlüssel" required="true"/>
+					<Input name="node_key" id="node_key_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement"
+						enabled="{= ${viewModel>/mode} === 'edit'? false: true}" visible="true"
+						value="{ path: 'node_key', type: 'sap.ui.model.odata.type.Guid' , constraints:{ nullable:false } }"/>
+					<Label text="Gesamtsteuerbetrag" required="false"/>
+					<Input name="tax_amount" id="tax_amount_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true"
+						value="{ path: 'tax_amount', type: 'sap.ui.model.odata.type.Decimal' , constraints:{ precision:16, scale:3 } }"/>
+					<Label text="Lebenszyklusstatus" required="false"/>
+					<Input name="lifecycle_status" id="lifecycle_status_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true"
+						visible="true" value="{ path: 'lifecycle_status', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:1 } }"/>
+					<Label text="Bestätigungsstatus" required="false"/>
+					<Input name="billing_status" id="billing_status_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true"
+						visible="true" value="{ path: 'billing_status', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:1 } }"/>
+					<Label text="Bestellstatus" required="false"/>
+					<Input name="delivery_status" id="delivery_status_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true"
+						visible="true" value="{ path: 'delivery_status', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:1 } }"/>
+					<Label text="Opportunity-ID" required="false"/>
+					<Input name="op_id" id="op_id_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true"
+						value="{ path: 'op_id', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:35 } }"/>
+					<Label text="Gesamtstatus" required="false"/>
+					<Input name="overall_status" id="overall_status_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true"
+						visible="true" value="{ path: 'overall_status', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:1 } }"/>
+					<Label text="Knotenschlüssel" required="false"/>
+					<Input name="buy_contact_guid" id="buy_contact_guid_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true"
+						visible="true" value="{ path: 'buy_contact_guid', type: 'sap.ui.model.odata.type.Guid' }"/>
+					<Label text="Knotenschlüssel" required="false"/>
+					<Input name="ship_to_adr_guid" id="ship_to_adr_guid_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true"
+						visible="true" value="{ path: 'ship_to_adr_guid', type: 'sap.ui.model.odata.type.Guid' }"/>
+					<Label text="Knotenschlüssel" required="false"/>
+					<Input name="bill_to_adr_guid" id="bill_to_adr_guid_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true"
+						visible="true" value="{ path: 'bill_to_adr_guid', type: 'sap.ui.model.odata.type.Guid' }"/>
+					<Label text="Zahlweg" required="false"/>
+					<Input name="payment_method" id="payment_method_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true"
+						visible="true" value="{ path: 'payment_method', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:1 } }"/>
+					<Label text="Kundenauftrags-ID" required="false"/>
+					<Input name="so_id" id="so_id_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true"
+						value="{ path: 'so_id', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:10 } }"/>
+					<Label text="Zahlungsbedingungen" required="false"/>
+					<Input name="payment_terms" id="payment_terms_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true"
+						value="{ path: 'payment_terms', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:1 } }"/>
+					<Label text="Bool. Wert" required="false"/>
+					<CheckBox name="created_by_bp" selected="{ path: 'created_by_bp'}" id="created_by_bp_id" enabled="true" visible="true"/>
+					<Label text="Bool. Wert" required="false"/>
+					<CheckBox name="changed_by_bp" selected="{ path: 'changed_by_bp'}" id="changed_by_bp_id" enabled="true" visible="true"/>
+					<Label text="Knotenschlüssel" required="false"/>
+					<Input name="note_guid" id="note_guid_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true"
+						value="{ path: 'note_guid', type: 'sap.ui.model.odata.type.Guid' }"/>
+					<Label text="Knotenschlüssel" required="false"/>
+					<Input name="buyer_guid" id="buyer_guid_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true"
+						value="{ path: 'buyer_guid', type: 'sap.ui.model.odata.type.Guid' }"/>
+					<Label text="ISO-Währungscode" required="false"/>
+					<Input name="currency_code" id="currency_code_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true"
+						value="{ path: 'currency_code', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:5 } }"/>
+					<Label text="Gesamtbruttobetrag" required="false"/>
+					<Input name="gross_amount" id="gross_amount_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true"
+						value="{ path: 'gross_amount', type: 'sap.ui.model.odata.type.Decimal' , constraints:{ precision:16, scale:3 } }"/>
+					<Label text="Gesamtnettobetrag" required="false"/>
+					<Input name="net_amount" id="net_amount_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true"
+						value="{ path: 'net_amount', type: 'sap.ui.model.odata.type.Decimal' , constraints:{ precision:16, scale:3 } }"/>
+				</f:content>
+			</f:SimpleForm>
+		</semantic:content>
+		<semantic:saveAction>
+			<semantic:SaveAction id="save" enabled="{viewModel>/enableCreate}" press="onSave"/>
+		</semantic:saveAction>
+		<semantic:cancelAction>
+			<semantic:CancelAction id="cancel" press="onCancel"></semantic:CancelAction>
+		</semantic:cancelAction>
+	</semantic:DetailPage>
+</mvc:View>
